@@ -14,8 +14,8 @@ struct MovieListResponse: Codable {
 }
 
 
-struct Movie: Codable, Identifiable {
-    let id: Int
+public struct Movie: Codable, Identifiable {
+    public let id: Int
     let title: String
     let overview: String
     let posterPath: String?

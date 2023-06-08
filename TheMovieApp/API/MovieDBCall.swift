@@ -62,4 +62,9 @@ class MovieService {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    // funcion para pasar url al test
+    func getMovieListURLtest() -> URL? {
+        return URL(string: "\(baseURL)/movie/popular?api_key=\(apiKey)&language=es-ES&page=1")
+    }
 }
