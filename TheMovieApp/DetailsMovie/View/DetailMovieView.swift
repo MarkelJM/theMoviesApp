@@ -44,7 +44,7 @@ struct DetailMovieView: View {
 
 struct DetailMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        let movie = Movie(id: 0, title: "Avengers: Endgame", overview: "Overview", posterPath: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg")
+        let movie = Movie(id: 0, title: "Avengers: Endgame", overview: "Overview", posterPath: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg", voteAverage: 6.99)
         let viewModel = MovieListViewModel()
         return DetailMovieView(movie: movie).environmentObject(viewModel)
     }

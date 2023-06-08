@@ -19,7 +19,13 @@ struct MovieRowView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100)
             
-            Text(movie.title)
+            VStack(alignment: .leading) {
+                Text(movie.title)
+                    .font(.headline)
+                Text("Grade: \(movie.voteAverage, specifier: "%.1f")")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
             
             Spacer()
         }
@@ -29,7 +35,7 @@ struct MovieRowView: View {
 
 struct MovieRow_Previews: PreviewProvider {
     static var previews: some View {
-        let movie = Movie(id: 0, title: "Avengers: Endgame", overview: "Overview", posterPath: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg")
+        let movie = Movie(id: 0, title: "Avengers: Endgame", overview: "Overview", posterPath: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg", voteAverage: 9.8)
         MovieRowView(movie: movie)
     }
 }

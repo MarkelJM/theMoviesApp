@@ -19,6 +19,7 @@ struct Movie: Codable, Identifiable {
     let title: String
     let overview: String
     let posterPath: String?
+    let voteAverage: Double
     var isFavorite: Bool = false
 
     enum CodingKeys: String, CodingKey {
@@ -26,6 +27,8 @@ struct Movie: Codable, Identifiable {
         case title
         case overview
         case posterPath = "poster_path"
+        case voteAverage = "vote_average"
+
     }
     
     var posterURL: URL {
@@ -35,6 +38,10 @@ struct Movie: Codable, Identifiable {
          */
     }
 }
+
+
+
+
 /*
 struct MovieDetail: Codable {
     let id: Int
