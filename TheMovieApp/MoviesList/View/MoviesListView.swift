@@ -15,7 +15,8 @@ struct MoviesListView: View {
         NavigationView {
             List {
                 ForEach(viewModel.movies) { movie in
-                    NavigationLink(destination: DetailMovieView(movie: movie)) {
+                    //para navegar el view del detail espera su viewmodel:
+                    NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
                         MovieRowView(movie: movie, onFavoriteToggle: {
                             viewModel.toggleFavorite(movie: movie)
                         })
@@ -26,7 +27,6 @@ struct MoviesListView: View {
         }
     }
 }
-
 
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
@@ -40,3 +40,4 @@ struct MoviesListView_Previews: PreviewProvider {
         return MoviesListView().environmentObject(viewModel)
     }
 }
+

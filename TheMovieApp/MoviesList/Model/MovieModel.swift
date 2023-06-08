@@ -35,7 +35,7 @@ struct Movie: Codable, Identifiable {
          */
     }
 }
-
+/*
 struct MovieDetail: Codable {
     let id: Int
     let title: String
@@ -54,3 +54,4 @@ struct MovieDetail: Codable {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
     }
 }
+*/

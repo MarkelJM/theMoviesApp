@@ -40,7 +40,7 @@ class MovieService {
     }
     
     
-    func getMovieDetail(movieId: Int) -> AnyPublisher<MovieDetail, Error> {
+    func getMovieDetail(movieId: Int) -> AnyPublisher<Movie, Error> {
         // Construimos la URL completa
         let urlString = "\(baseURL)/movie/\(movieId)?api_key=\(apiKey)&language=es-ES"
         
@@ -58,7 +58,7 @@ class MovieService {
         // Y finalmente convertimos el resultado en un AnyPublisher
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
-            .decode(type: MovieDetail.self, decoder: JSONDecoder())
+            .decode(type: Movie.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
