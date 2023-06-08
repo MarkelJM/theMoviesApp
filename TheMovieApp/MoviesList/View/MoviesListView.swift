@@ -9,32 +9,33 @@ import SwiftUI
 import Combine
 
 struct MoviesListView: View {
-    @StateObject var viewModel = MovieListViewModel()
+    @ObservedObject var viewModel: MovieListViewModel = MovieListViewModel()
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.movies) { movie in
-                    //para navegar el view del detail espera su viewmodel:
-                    HStack{
+            VStack {
+                TextField("Search", text: $viewModel.searchTerm)
+                    .padding(.leading)
+                List(viewModel.filteredMovies, id: \.id) { movie in
+                    HStack {
                         Button(action: {
-                            viewModel.toggleFavorite(movie: movie)
+                            self.viewModel.toggleFavorite(movie: movie)
                         }) {
                             Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
                         }
                         .buttonStyle(PlainButtonStyle())  // Para que no navegue al detail. Al estar corazon y row en el mismo HStack, se activarán juntos
-                        
                         
                         NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
                             MovieRowView(movie: movie)
                         }
                     }
                 }
+                .navigationTitle("Movies")
             }
-            .navigationTitle("Movies")
         }
     }
 }
+
 
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {

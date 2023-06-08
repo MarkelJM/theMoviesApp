@@ -9,25 +9,38 @@ import Foundation
 import Combine
 
 class MovieListViewModel: ObservableObject {
-    @Published var movies = [Movie]()
-    private var cancellables = Set<AnyCancellable>()
+    @Published var movies: [Movie] = []
+    @Published var searchTerm: String = ""
+    private var movieService: MovieService
+    private var cancellables: Set<AnyCancellable> = []
 
-    init() {
+    var filteredMovies: [Movie] {
+        if searchTerm.isEmpty {
+            return movies
+        } else {
+            return movies.filter { $0.title.lowercased().contains(searchTerm.lowercased()) }
+        }
+    }
+
+    init(movieService: MovieService = MovieService()) {
+        self.movieService = movieService
         fetchMovies()
     }
 
     private func fetchMovies() {
-        MovieService().getMovieList()
-            .sink(receiveCompletion: { completion in
+        movieService.getMovieList()
+            .sink { completion in
                 switch completion {
+                case .failure(let error):
+                    print("Error fetching movies: \(error)")
                 case .finished:
                     break
-                case .failure(let error):
-                    print(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] movieListResponse in
-                self?.movies = movieListResponse.results
-            })
+            } receiveValue: { [weak self] movieListResponse in
+                DispatchQueue.main.async {
+                    self?.movies = movieListResponse.results
+                }
+            }
             .store(in: &cancellables)
     }
 
@@ -37,4 +50,5 @@ class MovieListViewModel: ObservableObject {
         }
     }
 }
+
 
