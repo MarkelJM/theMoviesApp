@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MainTabBarView: View {
+    @EnvironmentObject var movieListViewModel: MovieListViewModel
+
     var body: some View {
         TabView {
             MoviesListView()
+                .environmentObject(movieListViewModel)
                 .tabItem {
                     Image(systemName: "film")
                     Text("Movies")
@@ -23,24 +26,25 @@ struct MainTabBarView: View {
                             Text("Movies")
                             Spacer()
                         }
-                        .background(Color.red)
+                        .background(Color.red.opacity(0.6))
                     }
                 }
-            
-            Text("Favoritos")
+
+            FavouritesMoviesListView()
+                .environmentObject(movieListViewModel)
                 .tabItem {
                     Image(systemName: "heart")
-                    Text("Favoritos")
+                    Text("Favourites")
                 }
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         HStack {
                             Spacer()
                             Image(systemName: "heart")
-                            Text("Favoritos")
+                            Text("Favourites")
                             Spacer()
                         }
-                        .background(Color.red)
+                        .background(Color.red.opacity(0.6))
                     }
                 }
         }
@@ -50,6 +54,7 @@ struct MainTabBarView: View {
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabBarView()
+            .environmentObject(MovieListViewModel())
     }
 }
 

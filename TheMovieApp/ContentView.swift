@@ -24,3 +24,18 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+/*
+ import SwiftUI
+
+ @main
+ struct TheMovieAppApp: App {
+     var body: some Scene {
+         WindowGroup {
+             MainTabView()
+         }
+     }
+ }
+
+ */

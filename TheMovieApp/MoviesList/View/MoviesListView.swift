@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct MoviesListView: View {
-    @ObservedObject var viewModel: MovieListViewModel = MovieListViewModel()
+    @EnvironmentObject var viewModel: MovieListViewModel
 
     var body: some View {
         NavigationView {
@@ -23,9 +23,9 @@ struct MoviesListView: View {
                         }) {
                             Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
                         }
-                        .buttonStyle(PlainButtonStyle())  // Para que no navegue al detail. Al estar corazon y row en el mismo HStack, se activarán juntos
+                        .buttonStyle(PlainButtonStyle())
                         
-                        NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
+                        NavigationLink(destination: DetailMovieView(movie: movie).environmentObject(viewModel)) {
                             MovieRowView(movie: movie)
                         }
                     }

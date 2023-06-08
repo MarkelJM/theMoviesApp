@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
 struct FavouritesMoviesListView: View {
-    @ObservedObject var viewModel: MovieListViewModel = MovieListViewModel()
+    @EnvironmentObject var viewModel: MovieListViewModel
 
     var body: some View {
         NavigationView {
@@ -21,16 +20,17 @@ struct FavouritesMoviesListView: View {
                         Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
                     }
                     .buttonStyle(PlainButtonStyle())
-                        
-                    NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
+                    
+                    NavigationLink(destination: DetailMovieView(movie: movie).environmentObject(viewModel)) {
                         MovieRowView(movie: movie)
                     }
                 }
             }
-            .navigationTitle("Favorites")
+            .navigationTitle("Favourites")
         }
     }
 }
+
 
 
 struct FavouritesMoviesListView_Previews: PreviewProvider {
