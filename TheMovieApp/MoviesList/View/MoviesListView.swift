@@ -10,6 +10,7 @@ import Combine
 
 
 struct MoviesListView: View {
+    /* Usamos environment y no observer para mantener la relación de favoritos y no sean independietes los favoritos de la row y el de las listas*/
     @EnvironmentObject var viewModel: MovieListViewModel
 
     init() {

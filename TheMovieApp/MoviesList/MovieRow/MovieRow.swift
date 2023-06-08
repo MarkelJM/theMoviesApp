@@ -11,7 +11,7 @@ import Kingfisher
 
 struct MovieRowView: View {
     let movie: Movie
-
+    //Coloreamos las películas según su nota media
     func gradientBackground(forVoteAverage voteAverage: Double) -> LinearGradient {
             switch voteAverage {
             case 0..<5:

@@ -10,7 +10,9 @@ import SwiftUI
 import Kingfisher
 
 struct DetailMovieView: View {
+    /* En lugar de pasar los datos a través de un inicializador o como una variable de estado, puedes insertarlos en el entorno de una vista y las vistas dentro de ese entorno pueden tener acceso a esos datos.*/
     @EnvironmentObject var viewModel: MovieListViewModel
+    /* son una manera de hacer que los datos sean reactivos.*/
     @State var movie: Movie
 
     var body: some View {
