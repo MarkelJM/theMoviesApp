@@ -32,5 +32,15 @@ final class TheMovieAppTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testMovieModel() throws {
+        let movie = Movie(id: 1, title: "Test Movie", overview: "This is a test movie.", posterPath: "/test.jpg", voteAverage: 7.5)
+        
+        XCTAssertEqual(movie.id, 1)
+        XCTAssertEqual(movie.title, "Test Movie")
+        XCTAssertEqual(movie.overview, "This is a test movie.")
+        XCTAssertEqual(movie.posterPath, "/test.jpg")
+        XCTAssertEqual(movie.voteAverage, 7.5)
+    }
 
 }
