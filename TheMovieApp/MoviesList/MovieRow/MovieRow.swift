@@ -11,7 +11,6 @@ import Kingfisher
 
 struct MovieRowView: View {
     let movie: Movie
-    let onFavoriteToggle: () -> Void
 
     var body: some View {
         HStack {
@@ -23,10 +22,6 @@ struct MovieRowView: View {
             Text(movie.title)
             
             Spacer()
-            
-            Button(action: onFavoriteToggle) {
-                Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
-            }
         }
     }
 }
@@ -35,7 +30,7 @@ struct MovieRowView: View {
 struct MovieRow_Previews: PreviewProvider {
     static var previews: some View {
         let movie = Movie(id: 0, title: "Avengers: Endgame", overview: "Overview", posterPath: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg")
-        MovieRowView(movie: movie, onFavoriteToggle: {})
+        MovieRowView(movie: movie)
     }
 }
 

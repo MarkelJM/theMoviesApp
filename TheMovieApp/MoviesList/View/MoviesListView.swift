@@ -16,10 +16,18 @@ struct MoviesListView: View {
             List {
                 ForEach(viewModel.movies) { movie in
                     //para navegar el view del detail espera su viewmodel:
-                    NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
-                        MovieRowView(movie: movie, onFavoriteToggle: {
+                    HStack{
+                        Button(action: {
                             viewModel.toggleFavorite(movie: movie)
-                        })
+                        }) {
+                            Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
+                        }
+                        .buttonStyle(PlainButtonStyle())  // Para que no navegue al detail. Al estar corazon y row en el mismo HStack, se activarán juntos
+                        
+                        
+                        NavigationLink(destination: DetailMovieView(viewModel: MovieDetailViewModel(movie: movie))) {
+                            MovieRowView(movie: movie)
+                        }
                     }
                 }
             }
