@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct MainTabBarView: View {
     var body: some View {
         TabView {
@@ -17,19 +15,41 @@ struct MainTabBarView: View {
                     Image(systemName: "film")
                     Text("Movies")
                 }
-
-            FavouritesMoviesListView()
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "film")
+                            Text("Movies")
+                            Spacer()
+                        }
+                        .background(Color.red)
+                    }
+                }
+            
+            Text("Favoritos")
                 .tabItem {
-                    Image(systemName: "heart.fill")
-                    Text("Favorites")
+                    Image(systemName: "heart")
+                    Text("Favoritos")
+                }
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "heart")
+                            Text("Favoritos")
+                            Spacer()
+                        }
+                        .background(Color.red)
+                    }
                 }
         }
     }
 }
 
-
-struct MainTabBar_Previews: PreviewProvider {
+struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabBarView()
     }
 }
+
