@@ -34,7 +34,7 @@ public struct Movie: Codable, Identifiable {
     var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
         /*
-         Para aclarar, posterPath es la parte de la URL que se obtiene de la API, y luego se combina con la URL base de las imágenes de la API ("https://image.tmdb.org/t/p/w500") para formar la URL completa de la imagen.
+         Para aclarar, posterPath es la parte de la URL que se obtiene de la API, y luego se combina con la URL base de las imágenes de la API ("https://image.tmdb.org/t/p/w500") para formar la URL completa de la imagen
          */
     }
 }

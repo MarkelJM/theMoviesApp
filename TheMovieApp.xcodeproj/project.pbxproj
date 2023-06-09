@@ -264,7 +264,6 @@
 		D3DEDA2A2A31F14300A54DB8 /* FavouriteMovies */ = {
 			isa = PBXGroup;
 			children = (
-				D3DEDA2C2A31F16500A54DB8 /* ViewModel */,
 				D3DEDA2B2A31F15F00A54DB8 /* View */,
 			);
 			path = FavouriteMovies;
@@ -276,13 +275,6 @@
 				D3DEDA2D2A31F18600A54DB8 /* FavouritesMoviesListView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D3DEDA2C2A31F16500A54DB8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

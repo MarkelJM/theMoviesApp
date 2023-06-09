@@ -38,6 +38,7 @@ struct MoviesListView: View {
                             .padding(.all)  
                     
                     ScrollView {
+                        /* LazyVSatck espera la creación de subvistas hasta que son necesarias-> teóricamente mejorar el rendimiento*/
                         LazyVStack {
                             ForEach(viewModel.filteredMovies, id: \.id) { movie in
                                 HStack {
