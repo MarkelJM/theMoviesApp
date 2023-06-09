@@ -13,17 +13,17 @@ struct MovieRowView: View {
     let movie: Movie
     //Coloreamos las películas según su nota media
     func gradientBackground(forVoteAverage voteAverage: Double) -> LinearGradient {
-            switch voteAverage {
-            case 0..<5:
-                return LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.5), Color.orange.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
-            case 5..<7:
-                return LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.5), Color.orange.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
-            case 7...10:
-                return LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.5), Color.blue.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
-            default:
-                return LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.5), Color.black.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
-            }
+        switch voteAverage {
+        case 0..<5:
+            return LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.7), Color.orange.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+        case 5..<7:
+            return LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.7), Color.orange.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+        case 7...10:
+            return LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.7), Color.blue.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+        default:
+            return LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.7), Color.black.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
         }
+    }
 
     var body: some View {
         ZStack {
@@ -43,7 +43,7 @@ struct MovieRowView: View {
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
 
                     Text("Grade: \(movie.voteAverage, specifier: "%.1f")")
-                        .font(.custom("Helvetica Neue", size: 20))
+                        .font(.custom("Helvetica Neue", size: 16))
                         .foregroundColor(.black)
                     
                 }

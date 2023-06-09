@@ -15,23 +15,27 @@ struct MoviesListView: View {
 
     init() {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.gray
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black, .font : UIFont(name: "Helvetica Neue", size: 35)!]
-        
+        appearance.backgroundColor = UIColor.black  // Color de fondo de la barra de navegación
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]  // Color del texto
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white, .font : UIFont(name: "Helvetica Neue", size: 35)!]
+
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 
+
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.white]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-                
-                VStack {
-                    TextField("Search", text: $viewModel.searchTerm)
-                        .padding(.leading)
+                LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    VStack {
+                        TextField("Search", text: $viewModel.searchTerm)
+                            .padding(.leading)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .padding(.all)  
                     
                     ScrollView {
                         LazyVStack {
