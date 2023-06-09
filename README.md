@@ -1,5 +1,9 @@
 # theMoviesApp
+
 Prueba técnica WembleyStudios sobre películas favoritas API de The Movie DB
+
+Enlace web para conseguir apiKey 
+personal:https://www.themoviedb.org/settings/api
 
 IMPORTANTE:
 Para usar esta aplicación, necesitarás una API Key de TheMovieDB. Por 
