@@ -42,6 +42,7 @@ struct MoviesListView: View {
                                     }) {
                                         Image(systemName: movie.isFavorite ? "heart.fill" : "heart")
                                     }
+                                    /* La clave para que al pulsar el corazon no se active el detalle y separar boton y Row, aun y estando dentro del mismos HStack*/
                                     .buttonStyle(PlainButtonStyle())
                                     
                                     NavigationLink(destination: DetailMovieView(movie: movie).environmentObject(viewModel)) {
