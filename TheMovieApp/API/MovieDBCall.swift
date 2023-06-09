@@ -12,7 +12,9 @@ import Combine
 class MovieService {
     // Propiedades base de la API de TheMovieDB
     private let baseURL = "https://api.themoviedb.org/3"
-    private let apiKey = "012fcb9b4d3ae68253e49923b9a47605"
+    private let apiKey = "usar-apiKey-personal" //enlace apiKey personal: https://www.themoviedb.org/settings/api  +información en README.md
+    
+    
     
     /* Método para obtener la lista de películas más populares*/
     func getMovieList() -> AnyPublisher<MovieListResponse, Error> {
